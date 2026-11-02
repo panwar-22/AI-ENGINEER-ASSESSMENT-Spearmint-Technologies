@@ -28,6 +28,14 @@ function App() {
         body: JSON.stringify({ query: query.trim() }),
       });
 
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        const message = response.ok
+          ? 'The server returned an unexpected response.'
+          : `The server returned an error (${response.status}). Please try again later.`;
+        throw new Error(message);
+      }
+
       const data = await response.json();
 
       if (!response.ok) {
