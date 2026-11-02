@@ -105,6 +105,17 @@ The recommendation endpoint expects a `query` between 3 and 200 characters and
 returns a `recommendations` array. Each result includes product details and a
 reason for the match.
 
+## Deploy to Vercel
+
+Import the repository into Vercel with the repository root as the project root.
+The root `vercel.json` builds the React app in `client` and routes `/api/*` to
+the Express function in `api/index.js`. Add `GEMINI_API_KEY` in the Vercel
+project's Environment Variables, then redeploy. The root deployment URL should
+show the frontend; check the backend at `/api/health`.
+
+If the root URL displays `Cannot GET /`, confirm the config file is named
+exactly `vercel.json` and that the deployment is using the latest commit.
+
 ## Example queries
 
 - `Recommend a laptop under $500`
