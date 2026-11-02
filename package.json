@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "npm --prefix server run dev"
+  },
+  "dependencies": {
+    "@google/genai": "^2.32.0"
+  }
+}
